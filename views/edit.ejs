@@ -5,38 +5,46 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quotes app</title>
+    <title>
+        <%= siteTitle %> -
+            <%= pageTitle %>
+    </title>
     <style>
         * {
-            border-radius: 0px !important;
+            border-radius: 1px !important;
+        }
+        
+        body {
+            font-family: 'Poppins';
+            background-color: #bbbbbb;
         }
     </style>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-dark bg-primary" style="background-color: #8ea5cf !important;">
-        <span class="navbar-brand" style="color: #333;">Info UPDATE</span>
+    <nav class="navbar navbar-dark bg-primary" style="background-color: #3b3b3b !important;">
+        <span class="navbar-brand" style="color: #fff;"><%= pageTitle %></span>
     </nav>
     <br>
     <div class="row" style="margin-left: 50px; margin-right: 50px; margin-top: 50px;">
         <form action="http://localhost:3000/event/edit/<%= item[0].id %>" method="POST" class="col">
             <input type="hidden" name="id" value="<%= item[0].id %>">
             <div class="form-group row">
-                <label for="nom" class="col-2 col-form-label">Author First Name</label>
+                <label for="nom" class="col-2 col-form-label">First Name</label>
                 <div class="col-10">
                     <input type="text" name="nom" value="<%= item[0].nom %>" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="prenom" class="col-2 col-form-label">Author Name</label>
+                <label for="prenom" class="col-2 col-form-label">Last Name</label>
                 <div class="col-10">
                     <input type="text" name="prenom" value="<%= item[0].prenom %>" class="form-control">
                 </div>
             </div>
             <div class="form-group row" style="margin-left: 16%;">
                 <div class="col-10">
-                    <input type="submit" name="submit" value="Save Updates" class="btn btn-primary btn-lg" style="background-color:#1d6268;">
+                    <input type="submit" name="submit" value="Save" class="btn btn-primary btn-lg" style="background-color:#1d6268;">
                 </div>
             </div>
         </form>

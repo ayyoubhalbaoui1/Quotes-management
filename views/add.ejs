@@ -5,21 +5,29 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Quotes app</title>
+    <title>
+        <%= siteTitle %> -
+            <%= pageTitle %>
+    </title>
     <style>
         * {
-            border-radius: 0px !important;
+            border-radius: 1px !important;
         }
         
         body {
             font-family: 'Poppins';
+            background-color: #bbbbbb;
+        }
+        
+        #span {
+            align-items: center;
         }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-primary" style="background-color: #8ea5cf !important;">
-        <span class="navbar-brand" style="color: #333;">Add A new Autor</span>
+    <nav class="navbar navbar-dark bg-primary" style="background-color: #3b3b3b  !important;">
+        <span class="navbar-brand" style="color: #fff;"><%= pageTitle %></span>
     </nav>
 
     <div class="row" style="margin-left: 50px; margin-right: 50px; margin-top: 50px;">
@@ -38,7 +46,7 @@
             </div>
             <div class="form-group row" style="margin-left: 16%; margin-top: 4%;">
                 <div class="col-10">
-                    <input type="submit" name="submit" value="Add" class="btn btn-primary btn-lg" style="background-color:#1d6268;">
+                    <input type="submit" name="submit" value="Add + " class="btn btn-primary btn-lg" style="background-color:#c00303;">
                 </div>
             </div>
         </form>

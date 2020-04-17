@@ -4,17 +4,12 @@ let mysql = require('mysql');
 let app = express();
 let bodyParser = require('body-parser');
 
-/*
- ***parse All form data
- */
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-/*
- *** this is a view engin
- *** template parsing
- *** we are using ejs types 
- */
+
+
 
 app.set('view engine', 'ejs');
 
@@ -29,12 +24,7 @@ app.use('/js', express.static(__dirname + '/node_modules/tether/dist/js'));
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
-/*
- *** DataBase is connection details
- *** Localhost - When in production mode change this to your host
- *** User - User name of the database
- *** password - Database is the name of the DataBase
- */
+
 
 const con = mysql.createConnection({
     host: "localhost",
@@ -47,7 +37,7 @@ const con = mysql.createConnection({
  ***Global site title and base url
  */
 const siteTitle = "App";
-const baseURL = "http://localhost:4000";
+const baseURL = "http://localhost:3000";
 
 
 /*
@@ -60,7 +50,7 @@ app.get('/', function(req, res) {
     con.query("SELECT * FROM user", function(err, result) {
         res.render('index', {
             siteTitle: siteTitle,
-            pageTitle: "List of Quotes",
+            pageTitle: "Quotes list",
             items: result
         });
     });
@@ -72,7 +62,7 @@ app.get('/event/add', function(req, res) {
      */
     res.render('add.ejs', {
         siteTitle: siteTitle,
-        pageTitle: "add new",
+        pageTitle: "add new Author",
         items: ''
     });
 });
@@ -89,7 +79,6 @@ app.post('/event/add', function(req, res) {
 
 
 
-
 app.get('/event/edit/:id', (req, res) => {
 
 
@@ -98,7 +87,7 @@ app.get('/event/edit/:id', (req, res) => {
         if (err) throw err;
         res.render('edit', {
             siteTitle: siteTitle,
-            pageTitle: "Editing in : " + result[0].e_name,
+            pageTitle: "Author Info Updates ",
             item: result
         });
     });
@@ -131,6 +120,6 @@ app.get('/event/delete/:id', function(req, res) {
  *** Conetct to the server
  */
 
-let server = app.listen(4000, function() {
-    console.log('server started on 4000...');
+let server = app.listen(3000, function() {
+    console.log('server started on 3000...');
 });

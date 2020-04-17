@@ -1,5 +1,5 @@
 {
-    "name": "app",
+    "name": "myapp",
     "version": "1.0.0",
     "description": "app",
     "main": "server.js",
@@ -7,7 +7,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node server.js"
     },
-    "author": "Ayyoub",
+    "author": "AYYOUB",
     "license": "ISC",
     "dependencies": {
         "body-parser": "^1.19.0",
