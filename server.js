@@ -50,7 +50,7 @@ app.get('/', function(req, res) {
     con.query("SELECT * FROM user", function(err, result) {
         res.render('index', {
             siteTitle: siteTitle,
-            pageTitle: "List Of All Quotes In Our APP",
+            pageTitle: "List Of All Quotes In Our",
             items: result
         });
     });
