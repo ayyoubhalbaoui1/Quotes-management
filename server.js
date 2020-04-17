@@ -37,7 +37,7 @@ const con = mysql.createConnection({
  ***Global site title and base url
  */
 const siteTitle = "App";
-const baseURL = "http://localhost:3000";
+const baseURL = "http://localhost:4000";
 
 
 /*
@@ -50,7 +50,7 @@ app.get('/', function(req, res) {
     con.query("SELECT * FROM user", function(err, result) {
         res.render('index', {
             siteTitle: siteTitle,
-            pageTitle: "Quotes list",
+            pageTitle: "List Of All Quotes In Our APP",
             items: result
         });
     });
@@ -120,6 +120,6 @@ app.get('/event/delete/:id', function(req, res) {
  *** Conetct to the server
  */
 
-let server = app.listen(3000, function() {
-    console.log('server started on 3000...');
+let server = app.listen(4000, function() {
+    console.log('server started on 4000...');
 });
