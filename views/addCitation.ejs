@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <h1><%= title %></h1>
+
+    <!-- Alerts -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <!-- alerts success -->
+                <% if(success != ''){ %>
+                <div class="alert alert-success" role="alert"> <%= success%> </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="jumbotron">
+                    <h3>Form To Add New Citation</h3>
+                    <form action="/apis/citation/add" method="post" enctype="application/x-www-form-urlencoded">
+                        <div class="form-group">
+                            <label for="core">Citation Core</label>
+                            <input type="text" name="core" id="core" class="form-control"
+                                placeholder="Enter the Core of the Citation here">
+                        </div>
+                        <!--  -->
+                        <div class="form-group">
+                            <label for="source">Citation Source</label>
+                            <input type="text" name="source" id="source" class="form-control"
+                                placeholder="The Source Of this Citation">
+                        </div>
+                        <!--  -->
+                        <div class="form-group">
+                            <label for="authorid">Id Of The Author</label>
+                            <input type="text" name="authorid" id="authorid" class="form-control"
+                                placeholder="id of the author">
+                        </div>
+                        <!--  -->
+                        <button class="btn btn-danger">Citation + </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/1b86f0e672.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
