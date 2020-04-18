@@ -34,14 +34,14 @@ const con = mysql.createConnection({
 });
 
 /*
- ***Global site title and base url
+ ***Url Global
  */
 const siteTitle = "App";
 const baseURL = "http://localhost:4000";
 
 
 /*
- *** When page is loaded
+ ***loaded page
  */
 app.get('/', function(req, res) {
     /*
@@ -117,7 +117,7 @@ app.get('/event/delete/:id', function(req, res) {
 })
 
 /*
- *** Conetct to the server
+ *** Conetct server
  */
 
 let server = app.listen(4000, function() {
