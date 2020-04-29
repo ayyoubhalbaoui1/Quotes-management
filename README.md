@@ -6,7 +6,7 @@
 
 2- Go To phpMyadmin
 
-3- Create The A database (Name is: 1st_db)
+3- Create The A database (Name is: db)
 
 4- RUN node server.js on the terminal
 
