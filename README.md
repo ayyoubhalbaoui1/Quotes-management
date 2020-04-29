@@ -2,12 +2,14 @@
 
 
 
-1- installe WampServer 
+1- installe wampserver 
 
-2- Go To phpMyadmin
+2- Open WampServer 
 
-3- Create The A database (Name is: db)
+3- Create a data base (1st_db)
 
-4- RUN node server.js on the terminal
+4- Run terminal On Server.js File 
 
-5- ouvrir http://localhost:4000/ On browser 
+5- Run node server.js
+
+6- go to this link http://localhost:3000/  

@@ -4,12 +4,18 @@ let mysql = require('mysql');
 let app = express();
 let bodyParser = require('body-parser');
 
-
+/*
+ ***parse All form data
+ */
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-
+/*
+ *** this is a view engin
+ *** template parsing
+ *** we are using ejs types 
+ */
 
 app.set('view engine', 'ejs');
 
@@ -24,7 +30,12 @@ app.use('/js', express.static(__dirname + '/node_modules/tether/dist/js'));
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
-
+/*
+ *** DataBase is connection details
+ *** Localhost - When in production mode change this to your host
+ *** User - User name of the database
+ *** password - Database is the name of the DataBase
+ */
 
 const con = mysql.createConnection({
     host: "localhost",
@@ -34,14 +45,14 @@ const con = mysql.createConnection({
 });
 
 /*
- ***Url Global
+ ***Global site title and base url
  */
-const siteTitle = "App";
-const baseURL = "http://localhost:4000";
+const siteTitle = "myApp";
+const baseURL = "http://localhost:3000";
 
 
 /*
- ***loaded page
+ *** When page is loaded
  */
 app.get('/', function(req, res) {
     /*
@@ -50,7 +61,7 @@ app.get('/', function(req, res) {
     con.query("SELECT * FROM user", function(err, result) {
         res.render('index', {
             siteTitle: siteTitle,
-            pageTitle: "List Of All Quotes In Our",
+            pageTitle: "Author list",
             items: result
         });
     });
@@ -79,6 +90,34 @@ app.post('/event/add', function(req, res) {
 
 
 
+
+/*
+ *** Update
+ */
+// app.get('/event/edit/:id', function(req,res){
+//     con.query("SELECT * FROM user WHERE id = '"+ req.params.id + "'", function(err,result){
+//         result[0].nom=result[0].nom;
+//         result[0].prenom=result[0].prenom;
+//         res.render('edit',{
+//             siteTitle : siteTitle,
+//             pageTitle : "Editing in: " + result[0].nom,
+//             item : result
+//         })
+//     })
+// })
+
+// app.post('/event/edit/:id',function(req,res){
+//     let query = "UPDATE `user` SET";
+//         query += "`nom` = '"+req.body.nom+"',";
+//         query += "`prenom` = '"+req.body.prenom+"',";
+//         query += "WHERE `user`.`id`="+req.body.id+"";
+//     con.query(query, function(err, result){
+//         if(result.affectedRows){
+//             res.redirect(baseURL);
+//         }
+//     }); 
+// });
+
 app.get('/event/edit/:id', (req, res) => {
 
 
@@ -87,7 +126,7 @@ app.get('/event/edit/:id', (req, res) => {
         if (err) throw err;
         res.render('edit', {
             siteTitle: siteTitle,
-            pageTitle: "Author Info Updates ",
+            pageTitle: "Editing in : " + result[0].e_name,
             item: result
         });
     });
@@ -117,9 +156,9 @@ app.get('/event/delete/:id', function(req, res) {
 })
 
 /*
- *** Conetct server
+ *** Conetct to the server
  */
 
-let server = app.listen(4000, function() {
-    console.log('server started on 4000...');
+let server = app.listen(3000, function() {
+    console.log('server started on 3000...');
 });
